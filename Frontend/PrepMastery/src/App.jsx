@@ -1,22 +1,16 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/ques/')
-       .then((response) => response.json())
-       .then((data) => {
-          // console.log(data);
-          setData(data.questions);
-       })
-       .catch((err) => {
-          console.log(err.message);
-       });
+  useEffect(async() => {
+    try { const result = await fetch('http://127.0.0.1:8000/ques/')
+        const data = await result.json()
+        setData(data)
+      }
+      catch (e){
+        console.log(e)  
+      }
  }, []);
   console.log(data)
 
@@ -26,7 +20,6 @@ function App() {
       {data.map((question, index) => (
         <p key={index}>{question.Questions}</p>
       ))}
-       
       </div>
     </>
   )
