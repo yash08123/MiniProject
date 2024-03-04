@@ -54,7 +54,7 @@ def my_question(request):
         'questions': [
             {
                 'QId': question.QId,
-                'Questions': question.Questions,
+                'Questions': question.Question,
                 'Option1': question.Option1,
                 'Option2': question.Option2,
                 'Option3': question.Option3,
