@@ -18,15 +18,17 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager()
+from django.db import models
+
 class QuestionsTable(models.Model):
-    QId=models.CharField(max_length=5,unique=True)
-    Questions=models.CharField(max_length=100)
-    Option1=models.CharField(max_length=100)
-    Option2=models.CharField(max_length=100)
-    Option3=models.CharField(max_length=100)
-    Option4=models.CharField(max_length=100)
-    # AnswerKey=models.CharField(max_length=100)
-     
+    QId = models.CharField(max_length=25, unique=True)
+    Question = models.TextField(default=True)
+    Option1 = models.TextField(default=True)
+    Option2 = models.TextField(default=True)
+    Option3 = models.TextField(default=True)
+    Option4 = models.TextField(default=True)
+    Answer = models.TextField(default=True)
+
 
 
 
